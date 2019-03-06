@@ -52,19 +52,49 @@ scrollToBottom();
 
 // Gets and formats time
 function getTime(){
+    var month = new Date().getMonth();
+    var day = new Date().getDate();
+    var year = new Date().getFullYear();
     var minutes = new Date().getMinutes();
     var hours = new Date().getHours();
+    var monthName = '';
+    if(month == 0){
+        monthName = "January"
+    }else if(month == 1){
+        monthName = "February"
+    }else if(month == 2){
+        monthName = "March"
+    }else if(month == 3){
+        monthName = "April"
+    }else if(month == 4){
+        monthName = "May"
+    }else if(month == 5){
+        monthName = "June"
+    }else if(month == 6){
+        monthName = "July"
+    }else if(month == 7){
+        monthName = "August"
+    }else if(month == 8){
+        monthName = "September"
+    }else if(month == 9){
+        monthName = "October"
+    }else if(month == 10){
+        monthName = "November"
+    }else if(month == 11){
+        monthName = "December"
+    }
+    var date = monthName + " " + day + ", " + year + ",";
     if(minutes < 10){
         minutes = "0" + minutes
     }        
     if(hours == 0){
-        var dt = "12:" + minutes + "am"
+        var dt = date + "12:" + minutes + "am"
     }else if(hours >= 1 && hours < 12){
-        var dt = hours + ":" + minutes + "am"
+        var dt = date + " " + hours + ":" + minutes + "am"
     }else if(hours == 12){
-        var dt = hours + ":" + minutes  + "pm"
+        var dt = date + " " + hours + ":" + minutes  + "pm"
     }else{
-        var dt = hours - 12 + ":" + minutes + "pm"
+        var dt = date + " " + (hours - 12) + ":" + minutes + "pm"
     }
     return dt;
 }

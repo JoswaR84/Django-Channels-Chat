@@ -31,6 +31,7 @@ class ChatConsumer(WebsocketConsumer):
         ChatMessage.objects.create(
             user = find_user,
             message = message,
+            time = time,
         )
 
         # Send message to room group
