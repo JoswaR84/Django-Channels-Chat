@@ -1,0 +1,44 @@
+<!-- chat/templates/chat/room.html -->
+{% extends 'chat/base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+<div class="row">
+    <div id="chat-log">
+        {% for x in messages %}
+            {% if x.user == request.user %}
+                <div class="sender"> 
+                    {{ x.user }}
+                    <span class="grey-out"> 
+                        {{ x.time }}
+                    </span><br/>
+                    {{ x.message }}
+                </div>
+            {% else %}
+                <div class="receiver"> 
+                    {{ x.user }}
+                    <span class="grey-out"> 
+                        {{ x.time }}
+                    </span><br/>
+                    {{ x.message }}
+                </div>
+            {% endif %}    
+        {% endfor %}
+    </div>
+</div>
+<nav class="navbar fixed-bottom bg-grey">
+    <div class="input-group"> 
+        <input id="chat-message-input" class="form-control width100" type="text"/>
+        <span class="input-group-btn">
+            <button id="chat-message-submit" class="btn btn-primary" value="Send">
+                SEND <i class="fas fa-arrow-alt-circle-right"></i> 
+            </button>
+        </span>
+    </div>
+</nav>
+<script> 
+    var current_user = "{{ request.user }}";
+    var message_creator = "{{ request.user }}";
+    var audio = new Audio("{% static 'sounds/bloop-sound.mp3' %}");
+</script>
+<script src="{% static 'js/websocket.js' %}"></script>
+{% endblock %}

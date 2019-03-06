@@ -1,0 +1,21 @@
+{% extends 'chat/base.html' %}
+{% block content %}
+    <div class="row">
+        <div id="login-box" class="center-stuff">
+            <form method="post">
+                <h2 >Chat Login</h2>    
+                <br/>
+                <table>
+                    {% csrf_token %}
+                    {{ form.as_table }}
+                </table>
+                <br/>            
+                <span class="input-group-btn" style="float: right;">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-power-off"></i> LOGIN
+                    </button>
+                </span> 
+            </form>
+        </div>
+    </div>
+{% endblock %}
