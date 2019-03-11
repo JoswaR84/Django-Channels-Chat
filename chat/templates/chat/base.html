@@ -13,11 +13,7 @@
 <body>
     <div class="wrapper">
     <nav class="navbar fixed-top navbar-dark bg-dark">
-<<<<<<< HEAD
         <img class="navbar-brand" src="{% static 'images/logo.png' %}"/>
-=======
-        <img class="navbar-brand" src="{% static 'INSERT IMAGE LOCATION' %}"/>
->>>>>>> f984b855c74ce2fb689b5330995a6f927e469582
         {% if user.is_authenticated %}
         <ul class="navbar-nav">
             <a href="{% url 'logout' %}"> 
